@@ -7,6 +7,10 @@
   padding: 20px;
 }
 
+.button-container button {
+  margin-right: 20px;
+}
+
 .page1 .input-container {
   padding: 30px;
 }
@@ -19,9 +23,22 @@
 .reset-container {
   text-align: right;
   font-size: 20px;
-  padding: 20px 30px;  
+  padding: 20px 30px;
 }
 
+.picture {
+  padding: 20px;
+}
+
+.picture img {
+  width: 100%;
+  max-width: 600px;
+}
+
+
+/**/
+/**/
+/**/
 .App {
   text-align: center;
 }

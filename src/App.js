@@ -11,23 +11,50 @@ class App extends Component {
 
 var groomsman = {
   "hershel bhat":
-    {relation: "brother", years: 28, nickname: "Hershwiz", },
+    { relation: "brother", years: 28, nickname: "Hershwiz",
+      old_picture: "https://d13a0hp1k8a4rs.cloudfront.net/groomsmen_app/me_and_hershel.jpg",
+      new_picture: "https://d13a0hp1k8a4rs.cloudfront.net/groomsmen_app/me_and_hershel_new.jpg"
+    },
   "eric solomonson":
-    {relation: "friend", years: 18, nickname: "Eric"},
+    { relation: "friend", years: 18, nickname: "Eric",
+      old_picture: "https://d13a0hp1k8a4rs.cloudfront.net/groomsmen_app/me_and_eric.jpg",
+      new_picture: "" // picture from kenya
+    },
   "kevin adelman":
-    {relation: "friend", years: 17, nickname: "Kev"},
+    { relation: "friend", years: 17, nickname: "Kev",
+      old_picture: "https://d13a0hp1k8a4rs.cloudfront.net/groomsmen_app/me_and_kevin.jpg",
+      new_picture: "https://d13a0hp1k8a4rs.cloudfront.net/groomsmen_app/me_and_kevin_new.jpg"
+    },
   "josh carleton":
-    {relation: "friend", years: 10, nickname: "Joshua"},
+    { relation: "friend", years: 10, nickname: "Joshua",
+      old_picture: "https://d13a0hp1k8a4rs.cloudfront.net/groomsmen_app/me_and_josh.jpg",
+      new_picture: "https://d13a0hp1k8a4rs.cloudfront.net/groomsmen_app/me_and_josh_new.jpg"
+    },
   "jim kolodziej":
-    {relation: "friend", years: 10, nickname: "Jimmy"},
+    { relation: "friend", years: 10, nickname: "Jimmy",
+      old_picture: "https://d13a0hp1k8a4rs.cloudfront.net/groomsmen_app/me_and_jim.jpg",
+      new_picture: "https://d13a0hp1k8a4rs.cloudfront.net/groomsmen_app/me_and_jim_new.jpg"
+    },
   "mark cassidy":
-    {relation: "friend", years: 8, nickname: "Mark"},
+    { relation: "friend", years: 8, nickname: "Mark",
+      old_picture: "https://d13a0hp1k8a4rs.cloudfront.net/groomsmen_app/me_and_cassidy.jpg",
+      new_picture: "https://d13a0hp1k8a4rs.cloudfront.net/groomsmen_app/me_and_cassidy_new.jpg"
+    },
   "mark moschel":
-    {relation: "friend", years: 8, nickname: "Mark"},
+    { relation: "friend", years: 8, nickname: "Mark",
+      old_picture: "https://d13a0hp1k8a4rs.cloudfront.net/groomsmen_app/me_and_moschel.jpg",
+      new_picture: "https://d13a0hp1k8a4rs.cloudfront.net/groomsmen_app/me_and_moschel_new.jpg"
+    },
   "husam najib":
-    {relation: "friend", years: 10, nickname: "Tom Petty"},
+    { relation: "friend", years: 10, nickname: "Tom Petty",
+      old_picture: "https://d13a0hp1k8a4rs.cloudfront.net/groomsmen_app/me_and_husam.jpg",
+      new_picture: "https://d13a0hp1k8a4rs.cloudfront.net/groomsmen_app/me_and_husam_new.jpg" //picture from CO
+    },
   "siddharth bhalerao":
-    {relation: "friend", years: 20, nickname: "Sid"},
+    { relation: "friend", years: 18, nickname: "Sid",
+      old_picture: "https://d13a0hp1k8a4rs.cloudfront.net/groomsmen_app/me_and_siddharth.jpg",
+      new_picture: "https://d13a0hp1k8a4rs.cloudfront.net/groomsmen_app/me_and_siddharth_new.jpg" // picture from CO or wedding
+    },
   "vikrant donthamsetti":
     {relation: "bil", nickname: "Veeeeeeeeek"},
   "prashant donthamsetti":
@@ -100,13 +127,31 @@ var Page2 = React.createClass({
   },
   render: function() {
     return (
-      <div>
-        <h1>Hey, {this.props.groomData.nickname}</h1>
-        <h3>We've known each other now for {this.props.groomData.years} years! We're getting old ;-)</h3>
-        <h5>pictures here...</h5>
-        <h3>Next year, on July 22 2017, I'm taking the next big step in life. So I have a question for you...</h3>
-        <button onClick={this.props.onChangeStep.bind(null, "back")}>Back</button>
-        <button onClick={this.nextStep}>Next</button>
+      <div className="container text-center">
+        <div className="row">
+          <h1>Hey, {this.props.groomData.nickname}</h1>
+          <br />
+          <h3>We've known each other now for {this.props.groomData.years}-ish years! We're getting old ;-)</h3>
+          <h3>From then:</h3>
+          <div className="picture col-xs-12">
+            <img src={this.props.groomData.old_picture} role="presentation" />
+          </div>
+          <h3>Till now:</h3>
+          <div className="picture col-xs-12">
+            <img src={this.props.groomData.new_picture} role="presentation" />
+          </div>
+          <h3>{"Bro, it's been real. It's been fun. It's been real fun."}</h3>
+          <br />
+          <img src="http://i.giphy.com/wrzf9P70YWLJK.gif" />
+          <br />
+          <h3>{"Next year, on July 22 2017, I'm taking the next big step in life. It's a big moment and so I wanted to ask you..."}</h3>
+          <div className="button-container">
+            <button className="btn btn-default"
+              onClick={this.props.onChangeStep.bind(null, "back")}>Back</button>
+            <button className="btn btn-primary"
+              onClick={this.nextStep}>Next</button>
+          </div>
+        </div>
       </div>
     );
   }
@@ -116,7 +161,7 @@ var Page3 = React.createClass({
   render: function() {
     return (
       <div>
-        <h3>Since I'm currently living here</h3>
+        <h3>Hold on. This doesn't feel right. Since I'm currently living here</h3>
         <h5>Map of Lexington</h5>
         <h3>And you are living here</h3>
         <h5>Map of their location</h5>

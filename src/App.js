@@ -13,47 +13,56 @@ var groomsman = {
   "hershel bhat":
     { relation: "brother", years: 28, nickname: "Hershwiz",
       old_picture: "https://d13a0hp1k8a4rs.cloudfront.net/groomsmen_app/me_and_hershel.jpg",
-      new_picture: "https://d13a0hp1k8a4rs.cloudfront.net/groomsmen_app/me_and_hershel_new.jpg"
+      new_picture: "https://d13a0hp1k8a4rs.cloudfront.net/groomsmen_app/me_and_hershel_new.jpg",
+      location: "https://d13a0hp1k8a4rs.cloudfront.net/groomsmen_app/map_chicago.jpg"
     },
   "eric solomonson":
     { relation: "friend", years: 18, nickname: "Eric",
       old_picture: "https://d13a0hp1k8a4rs.cloudfront.net/groomsmen_app/me_and_eric.jpg",
-      new_picture: "" // picture from kenya
+      new_picture: "https://d13a0hp1k8a4rs.cloudfront.net/groomsmen_app/me_and_eric_new.jpg",
+      location: "https://d13a0hp1k8a4rs.cloudfront.net/groomsmen_app/map_boston.jpg"
     },
   "kevin adelman":
     { relation: "friend", years: 17, nickname: "Kev",
       old_picture: "https://d13a0hp1k8a4rs.cloudfront.net/groomsmen_app/me_and_kevin.jpg",
-      new_picture: "https://d13a0hp1k8a4rs.cloudfront.net/groomsmen_app/me_and_kevin_new.jpg"
+      new_picture: "https://d13a0hp1k8a4rs.cloudfront.net/groomsmen_app/me_and_kevin_new.jpg",
+      location: "https://d13a0hp1k8a4rs.cloudfront.net/groomsmen_app/map_chicago.jpg"
     },
   "josh carleton":
     { relation: "friend", years: 10, nickname: "Joshua",
       old_picture: "https://d13a0hp1k8a4rs.cloudfront.net/groomsmen_app/me_and_josh.jpg",
-      new_picture: "https://d13a0hp1k8a4rs.cloudfront.net/groomsmen_app/me_and_josh_new.jpg"
+      new_picture: "https://d13a0hp1k8a4rs.cloudfront.net/groomsmen_app/me_and_josh_new.jpg",
+      location: "https://d13a0hp1k8a4rs.cloudfront.net/groomsmen_app/map_boston.jpg"
     },
   "jim kolodziej":
     { relation: "friend", years: 10, nickname: "Jimmy",
       old_picture: "https://d13a0hp1k8a4rs.cloudfront.net/groomsmen_app/me_and_jim.jpg",
-      new_picture: "https://d13a0hp1k8a4rs.cloudfront.net/groomsmen_app/me_and_jim_new.jpg"
+      new_picture: "https://d13a0hp1k8a4rs.cloudfront.net/groomsmen_app/me_and_jim_new.jpg",
+      location: "https://d13a0hp1k8a4rs.cloudfront.net/groomsmen_app/map_chicago.jpg"
     },
   "mark cassidy":
     { relation: "friend", years: 8, nickname: "Mark",
       old_picture: "https://d13a0hp1k8a4rs.cloudfront.net/groomsmen_app/me_and_cassidy.jpg",
-      new_picture: "https://d13a0hp1k8a4rs.cloudfront.net/groomsmen_app/me_and_cassidy_new.jpg"
+      new_picture: "https://d13a0hp1k8a4rs.cloudfront.net/groomsmen_app/me_and_cassidy_new.jpg",
+      location: "https://d13a0hp1k8a4rs.cloudfront.net/groomsmen_app/map_stanford.jpg"
     },
   "mark moschel":
     { relation: "friend", years: 8, nickname: "Mark",
       old_picture: "https://d13a0hp1k8a4rs.cloudfront.net/groomsmen_app/me_and_moschel.jpg",
-      new_picture: "https://d13a0hp1k8a4rs.cloudfront.net/groomsmen_app/me_and_moschel_new.jpg"
+      new_picture: "https://d13a0hp1k8a4rs.cloudfront.net/groomsmen_app/me_and_moschel_new.jpg",
+      location: "https://d13a0hp1k8a4rs.cloudfront.net/groomsmen_app/map_napa.jpg"
     },
   "husam najib":
     { relation: "friend", years: 10, nickname: "Tom Petty",
       old_picture: "https://d13a0hp1k8a4rs.cloudfront.net/groomsmen_app/me_and_husam.jpg",
-      new_picture: "https://d13a0hp1k8a4rs.cloudfront.net/groomsmen_app/me_and_husam_new.jpg" //picture from CO
+      new_picture: "https://d13a0hp1k8a4rs.cloudfront.net/groomsmen_app/me_and_husam_new.jpg", //picture from CO,
+      location: "https://d13a0hp1k8a4rs.cloudfront.net/groomsmen_app/map_chicago.jpg"
     },
   "siddharth bhalerao":
     { relation: "friend", years: 18, nickname: "Sid",
       old_picture: "https://d13a0hp1k8a4rs.cloudfront.net/groomsmen_app/me_and_siddharth.jpg",
-      new_picture: "https://d13a0hp1k8a4rs.cloudfront.net/groomsmen_app/me_and_siddharth_new.jpg" // picture from CO or wedding
+      new_picture: "https://d13a0hp1k8a4rs.cloudfront.net/groomsmen_app/me_and_siddharth_new.jpg", // picture from CO or wedding
+      location: "https://d13a0hp1k8a4rs.cloudfront.net/groomsmen_app/map_louisville.jpg"
     },
   "vikrant donthamsetti":
     {relation: "bil", nickname: "Veeeeeeeeek"},
@@ -158,16 +167,38 @@ var Page2 = React.createClass({
 });
 
 var Page3 = React.createClass({
+  componentDidMount: function() {
+    window.scrollTo(0,0);
+  },
   render: function() {
     return (
       <div>
-        <h3>Hold on. This doesn't feel right. Since I'm currently living here</h3>
-        <h5>Map of Lexington</h5>
-        <h3>And you are living here</h3>
-        <h5>Map of their location</h5>
-        <h3>We'll have to use our imaginations a bit</h3>
-        <button onClick={this.props.onChangeStep.bind(null, "back")}>Back</button>
-        <button onClick={this.props.onChangeStep.bind(null, "next")}>Next</button>
+        <div className="container text-center">
+          <div className="row">
+            <h1>{"Hold on. This doesn't feel right."}</h1>
+            <br />
+            <h3>{"Since I'm currently living here:"}</h3>
+            <br />
+            <div className="picture col-xs-12">
+              <img src="https://d13a0hp1k8a4rs.cloudfront.net/groomsmen_app/map_lexington.jpg" role="presentation" />
+            </div>
+
+            <h3>And you are living here</h3>
+            <br />
+            <div className="picture col-xs-12">
+              <img src={this.props.groomData.location} role="presentation" />
+            </div>
+
+            <h3>We'll have to use our imaginations a bit</h3>
+
+            <div className="button-container">
+              <button className="btn btn-default"
+                onClick={this.props.onChangeStep.bind(null, "back")}>Back</button>
+              <button className="btn btn-primary"
+                onClick={this.props.onChangeStep.bind(null, "next")}>Next</button>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

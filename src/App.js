@@ -55,19 +55,19 @@ var groomsman = {
   "husam najib":
     { relation: "friend", years: 10, nickname: "Tom Petty",
       old_picture: "https://d13a0hp1k8a4rs.cloudfront.net/groomsmen_app/me_and_husam.jpg",
-      new_picture: "https://d13a0hp1k8a4rs.cloudfront.net/groomsmen_app/me_and_husam_new.jpg", //picture from CO,
+      new_picture: "https://d13a0hp1k8a4rs.cloudfront.net/groomsmen_app/me_and_husam_new.jpg",
       location: "https://d13a0hp1k8a4rs.cloudfront.net/groomsmen_app/map_chicago.jpg"
     },
   "siddharth bhalerao":
     { relation: "friend", years: 18, nickname: "Sid",
       old_picture: "https://d13a0hp1k8a4rs.cloudfront.net/groomsmen_app/me_and_siddharth.jpg",
-      new_picture: "https://d13a0hp1k8a4rs.cloudfront.net/groomsmen_app/me_and_siddharth_new.jpg", // picture from CO or wedding
+      new_picture: "https://d13a0hp1k8a4rs.cloudfront.net/groomsmen_app/me_and_siddharth_new.jpg",
       location: "https://d13a0hp1k8a4rs.cloudfront.net/groomsmen_app/map_louisville.jpg"
     },
-  "vikrant donthamsetti":
-    {relation: "bil", nickname: "Veeeeeeeeek"},
-  "prashant donthamsetti":
-    {relation: "bil", nickname: "Prashant"}
+  // "vikrant donthamsetti":
+  //   {relation: "bil", nickname: "Veeeeeeeeek"},
+  // "prashant donthamsetti":
+  //   {relation: "bil", nickname: "Prashant"}
 }
 
 var Page1 = React.createClass({
@@ -149,11 +149,15 @@ var Page2 = React.createClass({
           <div className="picture col-xs-12">
             <img src={this.props.groomData.new_picture} role="presentation" />
           </div>
+          <br />
+          <br />
           <h3>{"Bro, it's been real. It's been fun. It's been real fun."}</h3>
           <br />
-          <img src="http://i.giphy.com/wrzf9P70YWLJK.gif" />
           <br />
-          <h3>{"Next year, on July 22 2017, I'm taking the next big step in life. It's a big moment and so I wanted to ask you..."}</h3>
+          <img src="http://i.giphy.com/wrzf9P70YWLJK.gif" role="presentation"/>
+          <br />
+          <br />
+          <h3>{"Next year, on July 22 2017, I'm taking the next big step in life. It's a big moment and so I wanted to ask you a question..."}</h3>
           <div className="button-container">
             <button className="btn btn-default"
               onClick={this.props.onChangeStep.bind(null, "back")}>Back</button>
@@ -172,10 +176,10 @@ var Page3 = React.createClass({
   },
   render: function() {
     return (
-      <div>
+      <div className="container">
         <div className="container text-center">
           <div className="row">
-            <h1>{"Hold on. This doesn't feel right."}</h1>
+            <h1>{"But, hold on. This doesn't feel right."}</h1>
             <br />
             <h3>{"Since I'm currently living here:"}</h3>
             <br />
@@ -205,45 +209,124 @@ var Page3 = React.createClass({
 });
 
 var Page4 = React.createClass({
+  componentDidMount: function() {
+    window.scrollTo(0,0);
+  },
   answerNo: function() {
     alert("Congrats! You have just been signed up for hourly texts from Cat Facts - the leading provider of useless information about Cats. This service cannot be cancelled. Enjoy!");
   },
   render: function() {
     return (
-      <div>
-        <h3>So let's pretend, we're hanging out. Maybe at a bar</h3>
-        <h5>picture of a bar</h5>
-        <h3>With some sort of drink in hand</h3>
-        <h5>picture with a drink in hand</h5>
-        <h5>question</h5>
-        <button onClick={this.answerNo}>No</button>
-        <button onClick={this.props.onChangeStep.bind(null, "next")}>YES!</button>
+      <div className="container">
+        <div className="row">
+          <div className="col-xs-12 text-center">
+            <h1>{"Let's imagine:"}</h1>
+            <br />
+            <h3>{"We're hanging out. Maybe at a bar."}</h3>
 
-        <button onClick={this.props.onChangeStep.bind(null, "back")}>Back</button>
+            <div className="picture col-xs-12">
+              <img src="https://d13a0hp1k8a4rs.cloudfront.net/groomsmen_app/bar.jpg" role="presentation" />
+            </div>
+
+            <h3>{"With some sort of drink in hand."}</h3>
+            <br />
+            <div className="picture col-xs-12">
+              <img src="https://d13a0hp1k8a4rs.cloudfront.net/groomsmen_app/drink_pic.jpg" role="presentation" />
+            </div>
+
+            <h3>{"Ok, the scene has been set. And now back to my question."}</h3>
+            <br />
+            <br />
+            <h2>{"Bro, will you be one of my groomsmen?"}</h2>
+
+            <h4>Your Answer</h4>
+            <div className="button-container">
+              <button className="btn btn-default" onClick={this.answerNo}>No</button>
+              <button className="btn btn-primary" onClick={this.props.onChangeStep.bind(null, "next")}>YES!</button>
+            </div>
+
+            <div className="button-container">
+              <button className="btn btn-default" onClick={this.props.onChangeStep.bind(null, "back")}>Back</button>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
 });
 
 var Page5 = React.createClass({
+  componentDidMount: function() {
+    window.scrollTo(0,0);
+  },
   render: function() {
     return (
-      <div>
-        <h5>Gif here: "http://i.giphy.com/3ornk5Sou1XMaL44bS.gif"</h5>
+      <div className="container">
+        <div className="row">
+          <div className="col-xs-12 text-center">
+            <img src="http://i.giphy.com/3ornk5Sou1XMaL44bS.gif" width="100%" role="presentation" />
 
-        <button onClick={this.props.onChangeStep.bind(null, "back")}>Back</button>
-        <button onClick={this.props.onChangeStep.bind(null, "next")}>Next</button>
+            <div className="button-container">
+              <button className="btn btn-default"
+                onClick={this.props.onChangeStep.bind(null, "back")}>Back</button>
+              <button className="btn btn-primary"
+                onClick={this.props.onChangeStep.bind(null, "next")}>Next</button>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
 });
 
 var Page6 = React.createClass({
+  componentDidMount: function() {
+    window.scrollTo(0,0);
+  },
+  otherGroomsmen: function() {
+    var names = Object.keys(groomsman);
+    var index = names.indexOf(this.props.name);
+    names.splice(index, 1);
+
+    return names.join(", ");
+  },
   render: function() {
     return (
-      <div>
-        <h3>{this.props.groomData.nickname}, looking forward to having you be a part of the big day!</h3>
-        <button onClick={this.props.onChangeStep.bind(null, "back")}>Back</button>
+      <div className="container">
+        <div className="row">
+          <div className="col-xs-12 text-center">
+            <h2>{this.props.groomData.nickname}, looking forward to having you be a part of the big day!</h2>
+            <br />
+            <h4>You'll be alongside this group of awesome dudes:</h4>
+            <div>{this.otherGroomsmen()}</div>
+            <br />
+            <br />
+            <img src="http://enzian.org/wp-content/uploads/2016/02/The-Sandlot-Hero.jpg" width="100%" role="presentation" />
+            <br />
+            <br />
+            <br />
+
+            <h3>{"Oh, one final thing. During our ceremony you'll be wearing a traditional Indian outfit which I'll be getting for you. To make sure I get one that fits you right, can you please send me the following measurements?"}</h3>
+            <br />
+            <br />
+            <div className="col-xs-8 col-xs-offset-2">
+              <img src="https://d13a0hp1k8a4rs.cloudfront.net/groomsmen_app/kurta.jpg" width="100%" role="presentation" />
+            </div>
+
+            <br />
+            <br />
+
+            <div className="col-xs-12">
+              <h3>{"Thanks! We're all going to look REAL good."}</h3>
+              <br />
+              <h3>{"And as far as the bachelor party is concerned, I'm thinking Spring 2017. More information for that to follow. I'm pumped to have you as one of my groomsmen!"}</h3>
+            </div>
+
+            <div className="col-xs-12 button-container">
+              <button onClick={this.props.onChangeStep.bind(null, "back")}>Back</button>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
